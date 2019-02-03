@@ -60,6 +60,7 @@ function DefaultArrayItem(props) {
   return (
     <Card
       fluid
+      key={uuid4()}
       raised={false}
       style={{
         boxShadow: "none",
