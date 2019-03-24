@@ -2,7 +2,7 @@
 
 import React from "react";
 import sinon from "sinon";
-import { renderIntoDocument } from "react-dom/test-utils";
+import { renderIntoDocument } from "react-addons-test-utils";
 import { findDOMNode, render } from "react-dom";
 
 import Form from "../src";
@@ -18,7 +18,7 @@ export function createFormComponent(props) {
 }
 
 export function createSandbox() {
-  const sandbox = sinon.createSandbox();
+  const sandbox = sinon.sandbox.create();
   // Ensure we catch any React warning and mark them as test failures.
   sandbox.stub(console, "error", error => {
     throw new Error(error);
