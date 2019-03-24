@@ -1,7 +1,7 @@
 module.exports = {
   schema: {
-    title: "A registration form",
-    description: "A simple form example.",
+    title: "A registration form (nullable)",
+    description: "A simple form example using nullable types",
     type: "object",
     required: ["firstName", "lastName"],
     properties: {
@@ -19,7 +19,7 @@ module.exports = {
         title: "Age",
       },
       bio: {
-        type: "string",
+        type: ["string", "null"],
         title: "Bio",
       },
       password: {
@@ -46,6 +46,9 @@ module.exports = {
     },
     bio: {
       "ui:widget": "textarea",
+      "ui:placeholder":
+        "Leaving this field empty will cause formData property to be `null`",
+      "ui:emptyValue": null,
     },
     password: {
       "ui:widget": "password",
@@ -63,7 +66,7 @@ module.exports = {
   formData: {
     lastName: "Norris",
     age: 75,
-    bio: "Roundhouse kicking asses since 1940",
+    bio: null,
     password: "noneed",
   },
 };
